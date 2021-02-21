@@ -1,0 +1,77 @@
+.company {
+    background-color: $color-gray-5;
+    .company__content {
+        width: 100%;
+        margin: 0 auto;
+        p {
+            @include styleText($color-gray-4, $fs-1, $fw-normal);
+            text-align: center;
+        }
+        .company__logo {
+            width: 60%;
+            margin: $mg-2 auto;
+            text-align: center;
+            img {
+                margin: $mg-1;
+                cursor: pointer;
+            }
+        }
+        .company__infor {
+            width: 75%;
+            margin: 0 auto;
+            .company__items {
+                padding: $pd-2 + 8 $pd-2 + 10;
+                text-align: center;
+                h3 {
+                    @include styleText($color-black-light, $fs-2 - 1, $fw-bold-1);
+                }
+                p {
+                    @include styleText($color-black-0, $fs-0 + 1, $fw-normal);
+                }
+            }
+            .company-item1 {
+                border-right: 1px solid #dedfe0;
+                p {
+                    width: 350px;
+                    margin: 0 auto 1rem;
+                }
+            }
+            .company-item2 {
+                margin-left: auto;
+            }
+        }
+        //Responsive
+        .company__infor {
+            @include responsive("extra-large") {
+                .company-item1 {
+                    p {
+                        width: 300px;
+                    }
+                }
+            }
+            @include responsive("large") {
+                .company-item1 {
+                    p {
+                        width: 220px;
+                    }
+                }
+            }
+            @include responsive("medium") {
+                .company-item1 {
+                    border: none;
+                    p {
+                        width: 400px;
+                    }
+                }
+            }
+            @include responsive("small") {
+                .company-item1 {
+                    border: none;
+                    p {
+                        width: 280px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+.carousel {
+    background : url(../../images/cover.jpg) no-repeat center center/cover;
+    height: 500px;
+
+    position: relative;
+    .carousel__content{
+        max-width: 460px;
+        position: absolute;
+        top:30%;
+        left: 10%;
+
+        h3 {
+            @include styleText($color-white-0, $fs-4, $fw-bold);
+            line-height: 1.33;
+        }
+        p {
+            @include styleText($color-white-0, $fs-2 - 2, $fw-normal);
+            line-height: 1.61;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            background-color: #fff;
+            border: none;
+            padding: $pd-2;
+
+            &::placeholder {
+                @include styleText($color-gray-4, $fs-2, 100);
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        .input-group-append {
+            margin-left: 0;
+            
+            .input-group-text{
+                padding: $pd-1 $pd-2;
+                border: none;
+                background-color: $color-white-0;
+                color: $color-red-0;
+            }
+
+            &:hover {
+                .input-group-text {
+                    background-color: $color-red-0;
+                    color: $color-white-0;
+                }  
+            }
+        }
+    }
+}
+

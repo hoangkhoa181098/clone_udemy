@@ -1,0 +1,104 @@
+.courses {
+    margin: $mg-2 0;
+    .courses__content {
+        width: 80%;
+        margin: 0 auto;
+        .courses__left {
+            background-color: $color-gray-5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            padding: 0 $pd-1;
+            .courses__leftIntro {
+                max-width: 480px;
+            }
+            h3 {
+                @include styleText($color-black-0, $fs-2 - 1, $fw-bold-1);
+                line-height: 1.47em;
+            }
+            p {
+                @include styleText($color-black-0, $fs-0 + 1, $fw-normal);
+                line-height: 1.5em;
+            }
+        }
+        .courses__right {
+            .nav-tabs {
+                justify-content: space-between;
+                border: none;
+                .nav-item {
+                    //cho hover nằm trên để active để lên hover không bị mất cái border-bottom
+                    &:hover {
+                        .nav-link {
+                            border: none;
+                            color: $color-blue;
+                        }
+                    }
+                    .nav-link.active {
+                       border: none;
+                       color: $color-black-0;
+                       border-bottom : 5px solid $color-blue;
+                    }
+                    .nav-link {
+                        @include styleText($color-black-0, $fs-0, $fw-normal);
+                        border: none;
+                    }  
+                } 
+            }
+            .tab-content {
+                margin: $mg-1 auto 0;
+                position: relative;
+                cursor: pointer;
+                .courses__items {
+                    .card {
+                        margin:0 $mg-1 - 5;
+                        .card-title {
+                            @include styleText($color-black-0, $fs-0, $fw-bold-1);
+                        }
+                        .card-text {
+                            @include styleText($color-gray-4, $fs-1 - 1, $fw-normal);
+                        }
+                        .courses__rating {
+                            display: flex;
+                            .rating__star {
+                                @include styleText($color-yellow, $fs-1, $fw-normal);
+                                margin-right: $mg-0;
+                            }
+                            span:nth-child(2) {
+                                @include styleText($color-gray-4, $fs-1, $fw-bold);
+                                margin-right: $mg-0;
+                            }
+                            span:last-child {
+                                @include styleText($color-gray-4, $fs-1, $fw-normal);
+                            }
+                        }
+                        .courses__price {
+                            text-align: right;
+                            .old-price {
+                                @include styleText($color-gray-4, $fs-1, $fw-normal);
+                                text-decoration-line: line-through;
+                            }
+                            .new-price {
+                                @include styleText($color-black-0, $fs-0, $fw-bold);
+                            }
+                        }   
+                    }
+                }
+            } 
+        }
+    }
+    
+    //Responsive 
+    .courses__left {
+        @include responsive("large") {
+            display: none !important; 
+        }
+    }
+    .courses__right {
+        @include responsive("medium") {
+            .courses__rating {
+                display: none !important; 
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.footer__content {
+    width: 75%;
+    margin: 0 auto;
+    padding: $pd-2;
+    .footer__items {
+        p {
+            @include styleText($color-blue, $fs-1, $fw-normal);
+            cursor: pointer;
+            transition: color .3s;
+
+            &:hover {
+                color: #003845;
+            }
+        }
+        .footer-item1,.footer-item2 {
+            @include styleText($color-blue, $fs-1, $fw-bold-1);
+        }
+    }
+    .footer__button {
+        button {
+            background-color: $color-white-0;
+            border: 1px solid $color-gray-4;
+            @include styleText($color-gray-4, $fs-1, $fw-bold-1);
+            padding: $pd-1 $pd-2;
+            outline: none;
+            span:first-child {
+                @include styleText($color-gray-4, $fs-1, $fw-normal);
+                margin: 0 $mg-1;
+            }
+            span:nth-child(2) {
+                margin-right: $mg-1;
+            }
+            span:last-child {
+                margin-left: $mg-2;
+            }
+            &:hover {
+                color: $color-black-0;
+                border-color: $color-black-0;
+            }
+        }
+    }
+
+
+    //Responsive
+    @include responsive("medium") {
+        width: 100%; // footer__content
+        .footer__items {
+            display: none;
+        }
+    }
+}
+
+.footer__bottom {
+    width: 75%;
+    margin: 0 auto;
+    padding: $pd-2;
+    .footer__bottom-left {
+        img {
+            width: 110px;
+            cursor: pointer;
+            margin-right: $mg-2 - 5;
+        }
+        span {
+            @include styleText($color-gray-4, $fs-1, $fw-normal);
+        }
+    }
+    .footer__bottom-right {
+        text-align: right;
+        span {
+            @include styleText($color-blue, $fs-1, $fw-normal);
+            cursor: pointer;
+            margin-right: $mg-1;
+
+            &:hover {
+                color: #003845;
+            }
+        }
+        span:first-child {
+            margin-right: $mg-1;
+        }
+        .footer__bottom-itemN {
+            display: none;
+        }
+    }
+
+    //Responsive
+    @include responsive("medium") {
+        width: 100%;
+        .footer__bottom-right,.footer__bottom-left {
+            text-align: left;
+        }
+        .footer__bottom-right{
+            .footer__bottom-itemN {
+                display: inline-block;
+            }
+        }
+    }
+    @include responsive("large") {
+        width: 100%;
+    }
+}

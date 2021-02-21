@@ -1,0 +1,35 @@
+.feedback {
+    background-color: $color-gray-5;
+    .feedback__content {
+        width: 70%;
+        margin: 0 auto;
+        padding: $pd-2 + 10 0;
+        h3 {
+            @include styleText($color-black-0, $fs-3, $fw-bold-1);
+            margin-bottom: $mg-2 - 5;
+        }
+        .feedback__items {
+            background-color: $color-white-0;
+            border-radius: $border-radius + 1;
+            box-shadow: 0 1px 3px 0 rgba(20, 23, 28, .15);
+            padding: $pd-2 + 12;
+            margin-right: $mg-1;
+            height: 260px;
+            .feedback__infor {
+                display: flex;
+                align-items: center;
+                margin-bottom: $mg-1 + 5;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    margin-right: $mg-1;
+                }
+                p {
+                    @include styleText($color-black-0, $fs-0 + 1, $fw-bold-1);
+                    padding-top: $pd-1;
+                }
+            }
+        }
+    }
+}

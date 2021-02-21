@@ -1,0 +1,43 @@
+.banner {
+    background-color: $color-black-0;
+    height: 320px;
+    margin-top: $mg-2;
+    .banner__content {
+        width: 90%;
+        margin: 0 auto;
+        padding: $pd-2 + 5 0;
+        text-align: center;
+        @include styleText($color-gray-5, $fs-3 + 6, $fw-normal);
+        .banner__row2 {
+            margin: $mg-2 + 10;
+            align-items: center;
+            justify-content: center;
+            h3 {
+                @include styleText($color-gray-5, $fs-3, $fw-bold-1);
+            }
+            p {
+                @include styleText($color-gray-5, $fs-0, $fw-normal);
+            }
+            button {
+                border:none;
+            }
+        }
+    }
+}
+
+.banner__content{
+    //Responsive
+    @include responsive("large") {
+            .banner__row1, .banner__row3{
+                display: none;
+            }
+            .banner__row2 {
+                .react, .palette{
+                    display: none;
+                }
+                .banner__items {
+                    padding-top: $pd-2;
+                }
+            }
+    }
+}

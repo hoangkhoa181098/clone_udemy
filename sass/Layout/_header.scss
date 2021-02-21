@@ -1,0 +1,124 @@
+header {
+    @include styleText($color-black-light, $fs-1, $fw-normal);
+
+    border-bottom : 1px solid $color-gray-3;
+    background-color: $color-gray-1;
+    padding: $pd-1;
+}
+
+.header__left {
+    display: flex; // các element display block -> inline
+    align-items: center;
+    cursor: pointer;
+    //flex-grow : nếu không khai báo cho element con thì default là 0
+    .navbar-brand {
+        flex-grow: 0;
+        img {
+            width: 110px; 
+        }
+    }
+    .header__cato {
+        flex-grow: 0;
+        margin: 0 20px;
+        @include styleText($color-black-light, $fs-1, $fw-normal);
+    }
+    .header__form {
+        flex-grow: 1; // chiếm các phần trống còn lại cho full flex cha
+        .form-control {
+            background-color: $color-gray-1;
+            border: none; 
+            transition: none;
+            
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-top: 1px solid $color-gray-3;
+                border-bottom: 1px solid $color-gray-3;
+                border-left: 1px solid $color-gray-3;
+                background-color: $color-white-0;
+            }
+
+            // + có tác dụng khi focus phần tử 
+            //thì phần tử cùng cấp được cộng vào cũng tác dụng của focus
+            &:focus + .input-group-append { 
+                .input-group-text {
+                    color: $color-red-0;
+                    background-color: $color-white-0;
+                    border-top: 1px solid $color-gray-3;
+                    border-bottom: 1px solid $color-gray-3;
+                    border-right: 1px solid $color-gray-3;
+                }
+            }
+        }
+        .input-group-append {
+            margin-left: 0;
+            .input-group-text{
+                border: none;
+                background-color: $color-gray-1;
+                color: $color-red-0;
+            }
+            &:hover {
+                .input-group-text{
+                    background-color: $color-red-0;
+                    color: $color-white-0;
+                }
+            }
+        }
+    }
+}
+
+.header__right{
+    .nav-item {
+        margin-right: $mg-1;
+        .nav-link {
+            @include styleText($color-black-light, $fs-1, $fw-normal);
+            padding: $pd-1 $pd-2;
+            i {
+                color: $color-gray-4;
+            }
+        }
+
+        &:hover {
+            .nav-link {
+                background-color: $color-gray-1;
+                border: 1px solid $color-gray-1;
+            } 
+        }
+        .link-item3 {
+            border-radius: 50%;
+        }
+    }
+    .udemy-btnGroup {
+        &:hover {
+            border: none;
+        }
+    }
+}
+
+
+//Responsive 
+
+.header__right {
+
+    //max-width <= (dưới) màn hình bao nhiêu px thì áp dụng
+    //min-width >= (trên) màn hình bao nhiêu px thì áp dụng
+    @include responsive("extra-large") {
+        .nav-item.item1, .nav-item.item2 {
+            display: none !important; 
+        }
+    }
+    @include responsive("medium") {
+        .udemy-btnGroup {
+            display: none;
+        }
+    }
+}
+
+.header__left{
+    @include responsive("medium") {
+        justify-content: start;
+        .header__cato, .header__form{
+            display: none;
+        }
+    }
+}
